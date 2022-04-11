@@ -60,5 +60,5 @@ make bake-all-pandoc
 
 # TODO
 
-- [ ] add parsing step to download external linked resources (images, videos, etc.); download file as set relative links
+- [ ] add parsing step to download external linked resources (images, videos, etc.); download files and set relative links
 - [ ] make Node's `exec(makefile)` run with relative filepaths
