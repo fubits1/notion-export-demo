@@ -14,6 +14,8 @@ Minimal example to
 
 > Heads up: Locally, for each page a `meta.json` and a `<page>.json` file are produced. They are **not** part of the repository via `.gitignore`. These files store raw Notion data and leak the page IDs among other things. Please consider this before you put your outputs in a public repo.
 
+Notion Source DB: [https://fubits.notion.site/DB-Multiple-Pages-1890d20f20d04793a50bdaec3bd8200d](https://fubits.notion.site/DB-Multiple-Pages-1890d20f20d04793a50bdaec3bd8200d)
+
 ### Setup
 
 Create Notion Database Table and add a few pages or create a single Notion page (see `.env` file). Share the db/page with your integration account.
