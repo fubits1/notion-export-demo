@@ -1,0 +1,19 @@
+{
+  "name": "notion-export-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "export-md-single": "rm -rf output/* && node ./src/export-single-md.js",
+    "export-md-all": "rm -rf output/* && node ./src/export-all-md.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@notionhq/client": "^1.0.2",
+    "dotenv": "^16.0.0",
+    "notion-to-md": "^2.3.2"
+  },
+  "type": "module"
+}
