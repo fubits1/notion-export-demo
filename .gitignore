@@ -1,3 +1,6 @@
 node_modules/**
 .env
-output/**/*.json # undo for your purposes
+# undo for your purposes
+output/**/*.json
+# undo for your purposes
+output/**/meta.json
