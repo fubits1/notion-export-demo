@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cleanup": "rm -rf output/**",
     "export-md-single": "rm -rf output/* && node ./src/export-single-md.js",
     "export-md-all": "rm -rf output/* && node ./src/export-all-md.js",
     "test": "echo \"Error: no test specified\" && exit 1"
