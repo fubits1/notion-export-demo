@@ -4,7 +4,7 @@
 
 Minimal example to
 
-- fetch a set of Notion pages (from a database table) (offical [Notion API + JS client](https://developers.notion.com/))
+- fetch a set of Notion pages (from a database table) (via official [Notion API + JS client](https://developers.notion.com/))
 - for each Notion page
   - (with [notion-to-md](https://github.com/souvikinator/notion-to-md)) parse page as markdown (with additional metadata parsing)
   - output markdown as file (with `fs`) to `output/*`
@@ -16,7 +16,7 @@ Minimal example to
 
 Notion Source DB: [https://fubits.notion.site/DB-Multiple-Pages-1890d20f20d04793a50bdaec3bd8200d](https://fubits.notion.site/DB-Multiple-Pages-1890d20f20d04793a50bdaec3bd8200d)
 
-### Setup
+## Setup
 
 Create Notion Database Table and add a few pages or create a single Notion page (see `.env` file). Share the db/page with your integration account.
 
@@ -24,7 +24,7 @@ Create Notion Database Table and add a few pages or create a single Notion page 
 
 > add to local `.env` file:
 
-```
+```text
 NOTION_API_KEY=<your-api-token>
 SINGLE_PAGE=<your-page-id>
 DB_TABLE=<your-database-table-id>
@@ -32,13 +32,13 @@ DB_TABLE=<your-database-table-id>
 
 To parse a single page (`SINGLE_PAGE`, without further processing) run:
 
-```
+```javascript
 npm run export-md-single
 ```
 
 To parse all pages in a database (`DB_TABLE`) table run:
 
-```
+```javascript
 npm run export-md-all
 ```
 
@@ -48,17 +48,18 @@ npm run export-md-all
 
 To convert the single page `.md` file (path is hardcoded in the `makefile`) to PDF & Docx run:
 
-```
+```bash
 make bake-single-pandoc
 ```
 
 To convert all `.md` files in `output/*` to PDF & Docx run:
 
-```
+```bash
 make bake-all-pandoc
 ```
 
-# TODO
+## TODO
 
 - [ ] add parsing step to download external linked resources (images, videos, etc.); download files and set relative links
 - [ ] make Node's `exec(makefile)` run with relative filepaths
+- [ ] use [pagedjs-cli](https://github.com/pubpub/pagedjs-cli) as PDF engine for Pandoc
