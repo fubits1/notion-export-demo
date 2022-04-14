@@ -1,4 +1,9 @@
 import fs from 'fs';
+// fs.writeFile is async, but is callback-based
+// 'fs/promises' offers an async fs.writeFile which works with await
+// import {
+//   writeFile
+// } from 'fs/promises';
 
 async function parseSinglePage(n2m, pageId, params) {
 
@@ -32,31 +37,35 @@ async function parseSinglePage(n2m, pageId, params) {
   // writing to file
 
   // Prepend Meta / Header to MD Output IF metadata Obj exists
+  const writeFiles = async () => {
+    if (params.meta) {
+      fs.writeFile(`${dirName}/meta.json`, JSON.stringify(params.meta, "null", 2), (err) => {
+        console.log(err);
+      });
 
-  if (params.meta) {
-    fs.writeFile(`${dirName}/meta.json`, JSON.stringify(params.meta, "null", 2), (err) => {
+      // prepend meta data / front-matter from `params.meta`
+      mdString =
+        `# Title: ${params.meta.rawTitle}\n\n` +
+        `> Tags: ${params.meta.tags}\n\n` +
+        // `Source URL: [${params.meta.pageUrl}](${params.meta.pageUrl})\n` + // TODO: page leaks ID, therefore not included in public repo
+        mdString
+    }
+
+    // JSON
+    // TODO: leaks ID, therefore not included in public repo (via .gitignore)
+    fs.writeFile(`${dirName}/${fileNameJson}`, JSON.stringify(mdblocks, null, 2), (err) => {
       console.log(err);
     });
 
-    // prepend meta data / front-matter from `params.meta`
-    mdString =
-      `# Title: ${params.meta.rawTitle}\n\n` +
-      `> Tags: ${params.meta.tags}\n\n` +
-      // `Source URL: [${params.meta.pageUrl}](${params.meta.pageUrl})\n` + // TODO: page leaks ID, therefore not included in public repo
-      mdString
+    // Markdown
+    fs.writeFile(`${dirName}/${fileNameMd}`, mdString, (err) => {
+      console.log(err);
+    });
   }
 
-  // JSON
-  // TODO: leaks ID, therefore not included in public repo (via .gitignore)
-  fs.writeFile(`${dirName}/${fileNameJson}`, JSON.stringify(mdblocks), (err) => {
-    console.log(err);
+  return await writeFiles().then(() => {
+    console.log("output written:", dirName)
   });
-
-  // Markdown
-  fs.writeFile(`${dirName}/${fileNameMd}`, mdString, (err) => {
-    console.log(err);
-  });
-
 }
 
 export default parseSinglePage;

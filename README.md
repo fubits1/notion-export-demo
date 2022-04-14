@@ -49,19 +49,19 @@ npm run export-md-all
 To convert the single page `.md` file (path is hardcoded in the `makefile`) to PDF & Docx run:
 
 ```bash
-make bake-single-pandoc
+make bake-single
 ```
 
 To convert all `.md` files in `output/*` to PDF & Docx run:
 
 ```bash
-make bake-all-pandoc
+make bake-all
 ```
 
-> PDF solution now uses pandoc and [`pagedjs`](https://gitlab.coko.foundation/pagedjs/pagedjs/)/[`pagedjs-cli`](https://www.npmjs.com/package/pagedjs-cli) to produce the PDFs. `pagedjs` renders the PDF from `html` (+`css`).
+> The PDF `make` task now demonstrates both, pandoc and [`pagedjs`](https://gitlab.coko.foundation/pagedjs/pagedjs/)/[`pagedjs-cli`](https://www.npmjs.com/package/pagedjs-cli) to produce the PDFs. `pagedjs` renders the PDF from `html` (+`css`).
 
 ## TODO
 
 - [ ] add parsing step to download external linked resources (images, videos, etc.); download files and set relative links
-- [ ] make Node's `exec(makefile)` run with relative filepaths
+- [x] make Node's `exec(makefile)` run with relative filepaths
 - [x] use [pagedjs-cli](https://github.com/pubpub/pagedjs-cli) as PDF engine for Pandoc

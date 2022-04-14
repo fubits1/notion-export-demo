@@ -26,7 +26,7 @@ const n2m = new NotionToMarkdown({
 
 // fetch DB
 
-const result = (async () => {
+const fetchPages = async () => {
   const databaseId = process.env.DB_TABLE;
 
   // query db (~table)
@@ -36,7 +36,7 @@ const result = (async () => {
 
 
   // for each db entry (~page)
-  response.results.forEach(async (page, index) => {
+  const pages = response.results.map(async (page, index) => {
     // extract metadata
     const pageId = page.id;
     const parent = page.parent;
@@ -67,19 +67,37 @@ const result = (async () => {
     }
 
     // parse and write output file
-    parseSinglePage(n2m, pageId, params);
-    // call pandoc to produce pdf, docx
-    // TODO: fix relative path
-    // exec("make bake-all", (error, stdout, stderr) => {
-    //   if (error) {
-    //     console.log(`error: ${error.message}`);
-    //     return;
-    //   }
-    //   if (stderr) {
-    //     console.log(`stderr: ${stderr}`);
-    //     return;
-    //   }
-    //   console.log(`stdout: ${stdout}`);
-    // });
+    await parseSinglePage(n2m, pageId, params);
   })
-})();
+
+  console.log(pages)
+  return await Promise.all(pages)
+
+}
+
+function parsePDFs() {
+  // call pandoc to produce pdf, docx
+  // TODO: fix relative path 
+  const rootDir = process.env.PWD;
+  console.log("parsing PDFs", rootDir);
+  exec("make bake-all", {
+    cwd: rootDir
+  }, (error, stdout, stderr) => {
+    if (error) {
+      console.log("root", rootDir)
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+}
+
+await fetchPages().then((res) => {
+  console.log("Markdown Done")
+  parsePDFs()
+  console.log("Pandoc Done")
+})
