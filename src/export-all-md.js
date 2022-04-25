@@ -83,10 +83,11 @@ const fetchPages = async () => {
 }
 
 function parsePDFs() {
-  // call pandoc to produce pdf, docx
-  // TODO: fix relative path 
   const rootDir = process.env.PWD;
   console.log("parsing PDFs", rootDir);
+
+  // call pandoc & pagedjs-cli to produce pdf, docx
+
   exec("make bake-all", {
     cwd: rootDir
   }, (error, stdout, stderr) => {
