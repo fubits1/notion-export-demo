@@ -1,5 +1,5 @@
 import 'dotenv/config' // for .env file
-import 'fs' // for file output
+import fs from 'fs';
 import {
   exec
 } from 'child_process'; // for running shell from node
@@ -11,6 +11,13 @@ import {
 } from "notion-to-md";
 
 import parseSinglePage from "./parseSinglePage.js"
+
+// ensure that general /output folder exists
+if (!fs.existsSync("./output")) {
+  fs.mkdirSync("./output");
+  console.log(`Output directory created: "./output"`);
+}
+
 
 // initialize notion client
 
