@@ -21,6 +21,15 @@
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae rhoncus est. Proin aliquet nec risus vitae rhoncus. Integer nec sagittis orci. Vestibulum efficitur lectus dolor. Maecenas interdum, mi id pulvinar porttitor, magna sem placerat leo, ut lacinia velit nisl non erat. Curabitur quis tellus malesuada, eleifend ligula eget, vulputate tortor. Duis quis arcu justo. Ut vel justo risus. Mauris vel dignissim tellus.
 
+```mermaid
+flowchart LR
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+```
+
 Vestibulum eget velit vel enim imperdiet ultrices eu nec mi. In elementum commodo pellentesque. Donec ut mauris rhoncus, feugiat nulla et, volutpat nisi. Donec nisl nunc, condimentum eu urna sed, rhoncus auctor metus. Quisque ac urna eget mi porta faucibus at imperdiet augue. Donec eu sagittis ex. Phasellus sit amet placerat quam, id mollis augue. Aliquam ornare ex erat, vel molestie neque bibendum sit amet. Aenean sit amet commodo sem. Aliquam vitae massa vel ligula facilisis molestie euismod sed diam. Integer dapibus ligula ac ex luctus, vitae venenatis odio egestas. Vestibulum commodo magna a rutrum fringilla. Ut id neque ac turpis rutrum consequat quis nec arcu. Donec at feugiat erat. Nullam sapien tortor, dapibus tincidunt metus quis, tristique vestibulum nibh. Vestibulum augue elit, accumsan ac neque quis, finibus vulputate quam.
 
 Nulla ut ex blandit, egestas nulla sit amet, eleifend velit. Sed eget tellus quis urna rutrum hendrerit. Suspendisse condimentum ligula et feugiat porttitor. Praesent tincidunt urna vitae lorem consequat auctor. Mauris commodo orci metus, at mattis nulla porttitor eget. Duis ultrices imperdiet nibh, sed posuere magna facilisis sit amet. Curabitur suscipit lobortis odio, eu aliquam lorem sodales id. Etiam tempor magna vel ligula placerat sagittis.
