@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@notionhq/client": "^1.0.2",
+    "@notionhq/client": "^1.0.4",
     "dotenv": "^16.0.0",
     "notion-to-md": "^2.3.2",
     "pagedjs": "^0.2.0",
