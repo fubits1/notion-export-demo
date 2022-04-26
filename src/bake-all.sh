@@ -9,7 +9,7 @@ do
         echo $fileSegement # path w/o extension
         pandoc $file -o $fileSegement.docx
         pandoc $file -o $fileSegement.pandoc.pdf
-        pandoc $file -o $fileSegement.html # for pagedjs
+        pandoc $file -o $fileSegement.html --self-contained --css=./templates/pdf-style.css # for pagedjs
         pagedjs-cli $fileSegement.html -o $fileSegement.pagedjs.pdf
     done
 done

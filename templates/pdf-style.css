@@ -1,0 +1,9 @@
+html,
+body {
+  background: black;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+}
