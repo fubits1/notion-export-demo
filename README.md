@@ -16,7 +16,7 @@ Minimal example to
 
 - `pandoc`
 - `pandoc` needs `pdflatex` or a different PDF engine (specify with `--pdf-engine`)
-  - FWIW, `[tinytex](https://yihui.org/tinytex/)` is a minimal solution
+  - FWIW, [`tinytex`](https://yihui.org/tinytex/) is a minimal solution
 - `puppeteer` on Ubuntu depends on `libgbm.so.1`, which might be absent
   - run `sudo apt-get install -y libgbm-dev`
 
