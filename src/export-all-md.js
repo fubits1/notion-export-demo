@@ -52,8 +52,9 @@ const fetchPages = async () => {
     const pageUrl = page.url
     const tags = properties.Tags[properties.Tags.type].map(tag => tag.name).join("; ")
 
-    // clean up filename segment
-    const plainTitle = sanitize(properties.Title.title[0].plain_text.replaceAll(" ", "-").replaceAll(/’|‘|,/ig, ""))
+    // sanitize / clean up filename segment
+    const plainTitle = sanitize(properties.Name.title[0].text.content.replaceAll(" ", "-").replaceAll(/’|‘|,/ig, ""))
+    // define output path
     const dirName = `./output/${plainTitle}`;
     const fileNameJson = `${plainTitle}.json`;
     const fileNameMd = `${plainTitle}.md`;
@@ -65,7 +66,7 @@ const fetchPages = async () => {
       fileNameJson,
       meta: {
         plainTitle,
-        rawTitle: properties.Title.title[0].plain_text,
+        rawTitle: properties.Name.title[0].text.content,
         pageId,
         parent,
         properties,
