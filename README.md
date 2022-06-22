@@ -10,6 +10,16 @@ Minimal example to
   - output markdown as file (with `fs`) to `output/*`
 - with `pandoc` convert each page to PDF & Docx in `output/*`
 
+## OS-Level dependencies
+
+> installation of these dependencies is OS-specific, so it won't be covered by `npm install`
+
+- `pandoc`
+- `pandoc` needs `pdflatex` or a different PDF engine (specify with `--pdf-engine`)
+  - FWIW, `[tinytex](https://yihui.org/tinytex/)` is a minimal solution
+- `puppeteer` on Ubuntu depends on `libgbm.so.1`, which might be absent
+  - run `sudo apt-get install -y libgbm-dev`
+
 ## Quickstart
 
 > Heads up: Locally, for each page a `meta.json` and a `<page>.json` file are produced. They are **not** part of the repository via `.gitignore`. These files store raw Notion data and leak the page IDs among other things. Please consider this before you put your outputs in a public repo.

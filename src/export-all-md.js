@@ -9,6 +9,7 @@ import {
 import {
   NotionToMarkdown
 } from "notion-to-md";
+import sanitize from 'sanitize-filename'
 
 import parseSinglePage from "./parseSinglePage.js"
 
@@ -52,7 +53,7 @@ const fetchPages = async () => {
     const tags = properties.Tags[properties.Tags.type].map(tag => tag.name).join("; ")
 
     // clean up filename segment
-    const plainTitle = properties.Title.title[0].plain_text.replace(" ", "-").toLowerCase()
+    const plainTitle = sanitize(properties.Title.title[0].plain_text.replaceAll(" ", "-").replaceAll(/’|‘|,/ig, ""))
     const dirName = `./output/${plainTitle}`;
     const fileNameJson = `${plainTitle}.json`;
     const fileNameMd = `${plainTitle}.md`;
