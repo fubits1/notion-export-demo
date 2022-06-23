@@ -13,9 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "@notionhq/client": "^1.0.4",
-    "dotenv": "^16.0.0",
-    "notion-to-md": "^2.3.2",
-    "pagedjs": "^0.2.0",
+    "dotenv": "^16.0.1",
+    "notion-to-md": "^2.3.4",
+    "pagedjs": "^0.3.5",
     "pagedjs-cli": "^0.1.6",
     "sanitize-filename": "^1.6.3"
   },
